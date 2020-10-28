@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import logo from "../assets/headerlogo.png";
 import { colors } from "./colors";
-import { VscArrowLeft } from "react-icons/vsc";
+import { GiCancel } from "react-icons/gi";
 const HeaderWrap = {
 	width: "100%",
 	height: "40px",
@@ -31,13 +31,14 @@ const SHeader = styled.div`
 const PHeader = styled.div`
 	${HeaderWrap}
 	display: ${(props) => (props.currnet ? "flex" : "none")};
-	justify-content: space-between;
 `;
 
 const CText = styled(Link)`
 	text-decoration: none;
 	color: ${colors.main};
 	padding: 0 20px;
+	position: absolute;
+	left: 0;
 `;
 const MyHeader = styled.div`
 	${HeaderWrap}
@@ -55,9 +56,9 @@ export default withRouter(({ location: { pathname } }) => {
 			<SHeader currnet={pathname === "/search"}>검색하기</SHeader>
 			<PHeader currnet={pathname === "/product_register"}>
 				<CText to='/'>
-					<VscArrowLeft />
+					<GiCancel size={"1.8rem"} />
 				</CText>
-				<CText to='/'>완료</CText>
+				상품등록
 			</PHeader>
 			<MyHeader currnet={pathname === "/my_page"}>마이 페이지</MyHeader>
 		</>
